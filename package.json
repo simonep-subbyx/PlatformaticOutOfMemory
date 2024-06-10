@@ -12,6 +12,7 @@
     "typescript": "^5.4.2"
   },
   "dependencies": {
+    "platformatic": "^1.45.0",
     "@platformatic/service": "^1.45.0"
   },
   "engines": {
