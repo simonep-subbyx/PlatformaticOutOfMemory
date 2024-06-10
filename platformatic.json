@@ -1,13 +1,33 @@
 {
-  "$schema": "https://platformatic.dev/schemas/v1.45.0/runtime",
-  "entrypoint": "mining",
-  "allowCycles": false,
-  "hotReload": true,
-  "autoload": {
-    "path": "services",
-    "exclude": [
-      "docs"
-    ]
+  "$schema": "https://platformatic.dev/schemas/v1.19.0/db",
+  "db": {
+    "connectionString": "{PLT_CATALOG_DATABASE_URL}",
+    "graphql": true,
+    "openapi": true,
+    "schemalock": true
+  },
+  "watch": "{PLT_WATCH}",
+  "migrations": {
+    "dir": "migrations",
+    "autoApply": "{PLT_CATALOG_APPLY_MIGRATIONS}"
+  },
+  "plugins": {
+    "paths": [
+      {
+        "path": "./plugins",
+        "encapsulate": false
+      },
+      {
+        "path": "./routes",
+        "options": {
+          "PLT_CATALOG_PREFIX": "{PLT_CATALOG_PREFIX}"
+        }
+      }
+    ],
+    "typescript": "{PLT_TYPESCRIPT}"
+  },
+  "types": {
+    "autogenerate": false
   },
   "server": {
     "hostname": "{PLT_SERVER_HOSTNAME}",
@@ -15,6 +35,5 @@
     "logger": {
       "level": "{PLT_SERVER_LOGGER_LEVEL}"
     }
-  },
-  "managementApi": "{PLT_MANAGEMENT_API}"
+  }
 }

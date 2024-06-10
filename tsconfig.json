@@ -2,13 +2,14 @@
   "compilerOptions": {
     "module": "commonjs",
     "esModuleInterop": true,
-    "target": "es2020",
+    "target": "es2021",
     "sourceMap": true,
     "pretty": true,
     "noEmitOnError": true,
     "incremental": true,
     "strict": true,
-    "outDir": "dist"
+    "outDir": "dist",
+    "resolveJsonModule": true    
   },
   "watchOptions": {
     "watchFile": "fixedPollingInterval",
