@@ -1,9 +1,9 @@
 
 import { FastifyInstance } from 'fastify'
-import { PlatformaticApp, PlatformaticServiceConfig } from '@platformatic/service'
+import { PlatformaticApp, PlatformaticDBConfig, PlatformaticDBMixin, Entities } from '@platformatic/db'
 
 declare module 'fastify' {
   interface FastifyInstance {
-    platformatic: PlatformaticApp<PlatformaticServiceConfig>
+    platformatic: PlatformaticApp<PlatformaticDBConfig> & PlatformaticDBMixin<Entities>
   }
 }
